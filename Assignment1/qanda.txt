@@ -1,0 +1,62 @@
+Questions & Answers - Tom Roberts
+
+----------
+
+1. What does “well behaved” mean in the context of subroutines?
+	
+	For subroutines to be "well behaved" they most importantly, must not damage the
+	context of the calling program. The context is reffering to the register values
+	of registers being used, and the memory contents of memory location being used.
+	
+----------
+	
+2. Explain how/why your subroutine is “well behaved”.
+	
+	My subroutine is well behaved because I made sure that my subroutine does not
+	adjust any of the registers that are used in the main program, other than the registers
+	R0 and R1, which is where we're storing the result of the fact subroutine. This is to make
+	sure that my subroutine does not damage the context of the "main" calling program.
+	
+	Similarly, my none of the register I used in the "main" calling program affect the
+	factorial subroutine, other than the input parameter registers (R1)
+	
+	I also only use definitely safe memory locations to store the results of the
+	subroutine, declaring 4*8 bytes of space in memory, starting at 0x40000000 
+	(a definitelysafe location)
+	
+	The reason my subroutine is "well behaved" is to make sure that the subroutine
+	runs consistently every time, allowing multiple subroutine calls in the "main" calling
+	program. If the subroutine were not well behaves, errors are very likely to occur.
+	
+----------
+
+3. How would you test that your subroutine is well behaved?
+	
+	A good way to test that your subroutine is well behaved is to call it multiple times
+	in the "main" calling program. Another way to check if your function is well behaved,
+	is to give the registers being used in the subroutine (excluding input paramater registers)
+	a value before calling the subroutine. If your subroutine is well behaved, the subroutine
+	should work as intended, regardless of what occurs to the registers before the function call.
+
+
+----------
+
+4. Why is using repeated addition to implement multiplication such
+	a bad idea?
+	
+	While repeated addition would work to represent multiplication, it is generally a bad idea
+	because of how many repeated additions would be needed. In every situation it is better any of the
+	multiplication instructions that are a part of ARM architecture. Not only does this make neater and
+	easier to follow code, it also is much more efficient than repeated addition.
+	
+----------
+
+5. What would happen to the program if a very large number of recursive
+	calls were made, i.e. if there was very "deep" recursion?
+
+	The more recursive calls being made, the more stages you need to complete the subroutine. This
+	makes the running time of the subroutine significantly longer.
+	It also increases the likelihood of possible errors, such as unwanted overflow because of how
+	many recursive are calls being made.
+
+

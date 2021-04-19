@@ -1,0 +1,34 @@
+Q&A for Assignment 2 - Tom Roberts 199335276
+---------
+
+1.) What does the term "Memory Mapped" in "Memory Mapped I/O" mean?
+	I/O devices are mapped to small numbers of memory locations, which is why the term 
+	"Memory Mapped" is used.
+
+---------
+
+2.) What is the difference between a byte-sized memory-mapped interface register and 
+a regular byte of RAM?
+	A byte of memory in a Memory-Mapped Interface Register (MMIR) represents 8 Input/Output (I/O)
+	pins connected by hardware. A regular byte of RAM is just 8 bits of internal memory.
+
+---------
+
+3.) Why is polling considered to be inefficient?
+	Polling is considered to be inefficient because the CPU must poll frequently to make
+	sure nothing is missed, it has a higher energy usage, and a lot of the CPU's computational
+	power is wasted, making it inefficient.
+
+---------
+
+4.) How could you organise polling of two or more interfaces?
+	A way you could organise polling of two or more interfaces could be to poll each interface
+	sequentially. For example: with the interfaces A, B, C, the order of polling interfaces could
+	be A, B, C, A, B, C, A, B, C.... etc.
+
+---------
+
+5.) Why would polling be bad for a computer's energy consumption?
+	The CPU must poll frequently to make sure nothing is missed, because of this, a lot of the
+	CPU's computational power is wasted. Which is bad for a computer's energy consumption because
+	more power is needed.
