@@ -1,0 +1,49 @@
+Assignment 3 Q&A - Tom Roberts 19335276
+-------------------------------------------
+1.) What is the difference between "system" mode and "supervisor" mode on the ARM 7?
+
+  The System and Supervisor modes can both access protected resources and execute "Privileged"
+  instructions, but the System mode does not have a register bank switch, and uses the same
+  registers as the User mode.
+
+-----
+
+2.) When the term "preemptive" is used in respect of a thread or process scheduler, what
+does it mean?
+
+  Preemptive means that the thread or process is yielded without any advanced warning or
+  choice from the thread or process.
+
+-----
+
+3.) Based on what we have discussed in class, why it is inadvisable to use a general-purpose
+operating system in a situation where real-time operation must be guaranteed?
+
+  In a situation where real-time operation must be guaranteed, its not advisable to use a
+  general-purpose operating system, because we can't always yield a critical process
+  using a scheduling manager without affecting the operation of the process, and
+  the program might be forced to yield during an important part of the process, which would
+  not guarantee the real time operation we require.
+  Also, general-purpose operating systems use virtual memory, which can also cause a delay
+  during a crucial moment, which would also not guarantee real time operation.
+
+-----
+
+4.) What basic hardware facilities are provided to enable system builders to enforce
+privilege outside the CPU ("off-chip")?
+
+  A device called a Memory Management Unit (MMU) enables system builders to enforce privilege
+  outside the CPU ("off-chip").
+
+-----
+
+5.) Overall, which is more efficient: interrupt-driven I/O or polled I/O? In your answer,
+explain why and roughly estimate the difference in efficiency.
+
+  Interrupt-driven I/O has more efficient use of the CPU than Polled I/O does. This is because
+  Interrupt driven I/O can perform other operations, or even sleep instead of needing to
+  continuously poll.
+  For example: A 1MHz clocked device might need to poll up to 10,000 times per second to detect
+  a change in a peripheral interface, but the same device could perform other operations (instead
+  of just polling) while the program is waiting for an interrupt.
+  This is much more efficient use of the CPU.
